@@ -5,10 +5,12 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "dev": "npx nodemon -w --exec src/index.js localhost 9999"
+    "dev": "npx nodemon -w --exec src/index.js"
   },
   "dependencies": {
-    "frappe-charts": "^1.6.2"
+    "chart.js": "^4.4.0",
+    "frappe-charts": "^1.6.2",
+    "uplot": "^1.6.27"
   },
   "devDependencies": {
     "install": "^0.13.0",
