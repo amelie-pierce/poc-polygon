@@ -1,0 +1,1 @@
+"undefined"!=typeof document&&console.log(document);
