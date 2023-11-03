@@ -5,7 +5,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx nodemon -w --exec src/index.js"
+    "dev": "npx nodemon -w --exec src/index.js",
+    "build:dev": "npx webpack --mode=development",
+    "build:prod": "npx webpack --mode=production"
   },
   "dependencies": {
     "chart.js": "^4.4.0",
