@@ -1,4 +1,4 @@
-export default function generateRadarDataset(labels, data, dataSetLabel, styleOptions = {}) {
+export default function createCustomDataset(labels, data, dataSetLabel, styleOptions = {}) {
     const defaultStyleOptions = {
       fill: true,
       backgroundColor: "rgba(255, 99, 132, 0.2)",
