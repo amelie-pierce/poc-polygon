@@ -1,28 +1,20 @@
 import createCustomDatasetStyle from "./style.js";
+import createCustomDataset from "./createCustomDataset.js";
 
-const data = {
-  labels: [
-    "Eating",
-    "Drinking",
-    "Sleeping",
-    "Designing",
-    "Coding",
-    "Cycling",
-    "Running",
-  ],
-  datasets: [
-    {
-      label: "My First Dataset",
-      data: [65, 59, 90, 81, 56, 55, 40],
-      fill: true,
-      ...createCustomDatasetStyle({}),
-    },
-  ],
-};
+const userLabels = ["Drinking", "Coding", "Eating"];
+const userDataSet = [45, 50, 10];
+const userDataSetLabel = 'My Dataset';
+
+const userRadarDataset = createCustomDataset(userLabels, userDataSet, userDataSetLabel, createCustomDatasetStyle({
+  backgroundColor: "rgba(75, 192, 192, 0.2)",
+  borderColor: "rgb(75, 192, 192)",
+  pointBackgroundColor: "rgb(75, 192, 192)",
+  pointHoverBorderColor: "rgb(75, 192, 192)",
+}))
 
 const chartOptions = {
   type: "radar",
-  data: data,
+  data: userRadarDataset,
   options: {
     elements: {
       line: {
