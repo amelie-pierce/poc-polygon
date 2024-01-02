@@ -1,20 +1,27 @@
 import createCustomDatasetStyle from "./style.js";
 import createCustomDataset from "./createCustomDataset.js";
 
-const userLabels = ["Drinking", "Coding", "Eating"];
-const userDataSet = [45, 50, 10];
-const userDataSetLabel = "My Dataset";
+const DEFAULT_ATTRIBUTES = {
+  labels: ["Technology", "System", "People", "Process", "Influence"],
+  datasets: {
+    label: "Growth Up Chart",
+    data: [
+      { id: "Sales", nested: { value: 1500 } },
+      { id: "Purchases", nested: { value: 500 } },
+    ],
+  },
+  options: {
+    parsing: {
+      key: "nested.value",
+    },
+  },
+};
 
 const userRadarDataset = createCustomDataset(
-  userLabels,
-  userDataSet,
-  userDataSetLabel,
-  createCustomDatasetStyle({
-    backgroundColor: "rgba(75, 192, 192, 0.2)",
-    borderColor: "rgb(75, 192, 192)",
-    pointBackgroundColor: "rgb(75, 192, 192)",
-    pointHoverBorderColor: "rgb(75, 192, 192)",
-  })
+  DEFAULT_ATTRIBUTES.labels,
+  DEFAULT_ATTRIBUTES.datasets.data,
+  DEFAULT_ATTRIBUTES.datasets.label,
+  createCustomDatasetStyle()
 );
 
 export default userRadarDataset;
