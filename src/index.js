@@ -1,17 +1,24 @@
 import userRadarDataset from "./config.js";
 
-const chartOptions = {
-  type: "radar",
-  data: userRadarDataset,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3,
-      },
+const CHART_OPTIONS = {
+  elements: {
+    line: {
+      borderWidth: 2,
     },
   },
 };
 
-const ctx = document.getElementById("chart");
+const createChartConfig = (
+  type = "radar",
+  data = userRadarDataset,
+  options = CHART_OPTIONS
+) => {
+  return {
+    type: type,
+    data: data,
+    options: options,
+  };
+};
 
-new Chart(ctx, chartOptions);
+const ctx = document.getElementById("chart");
+new Chart(ctx, createChartConfig("radar", userRadarDataset, CHART_OPTIONS));

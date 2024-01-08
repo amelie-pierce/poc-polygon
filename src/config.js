@@ -5,16 +5,9 @@ const DEFAULT_ATTRIBUTES = {
   labels: ["Technology", "System", "People", "Process", "Influence"],
   datasets: {
     label: "Growth Up Chart",
-    data: [
-      { id: "Sales", nested: { value: 1500 } },
-      { id: "Purchases", nested: { value: 500 } },
-    ],
+    data: [1, 2, 3, 4, 5],
   },
-  options: {
-    parsing: {
-      key: "nested.value",
-    },
-  },
+  options: {},
 };
 
 const userRadarDataset = createCustomDataset(

@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "chart.js": "^4.4.0",
-    "frappe-charts": "^1.6.2",
-    "uplot": "^1.6.27"
+    "chartjs-plugin-datalabels": "^2.2.0"
   },
   "devDependencies": {
     "install": "^0.13.0",
