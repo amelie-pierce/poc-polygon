@@ -4,7 +4,7 @@ export default function createOption(data) {
     radar: [
       {
         indicator: [
-          { text: "Technology", max: data.size },
+          { text: "Human", max: data.size },
           { text: "System", max: data.size },
           { text: "People", max: data.size },
           { text: "Process", max: data.size },
@@ -25,7 +25,7 @@ export default function createOption(data) {
         radarIndex: 0,
         data: [
           {
-            value: [100, 200, 50, 200, 150],
+            value: [200, 200, 50, 200, 150],
             symbol: "circle",
             symbolSize: 0,
             lineStyle: {
@@ -36,7 +36,7 @@ export default function createOption(data) {
               color: "transparent",
             },
             lineStyle: {
-              width: 5,
+              width: 2,
               color: "orange",
             },
             label: {

@@ -1,24 +1,23 @@
-import userRadarDataset from "./config.js";
+import createOption from "./option.js";
 
-const CHART_OPTIONS = {
-  elements: {
-    line: {
-      borderWidth: 2,
-    },
-  },
+const data = {
+  size: 250,
+  qty: 5,
 };
 
-const createChartConfig = (
-  type = "radar",
-  data = userRadarDataset,
-  options = CHART_OPTIONS
-) => {
-  return {
-    type: type,
-    data: data,
-    options: options,
-  };
-};
+var dom = document.getElementById("chart-container");
 
-const ctx = document.getElementById("chart");
-new Chart(ctx, createChartConfig("radar", userRadarDataset, CHART_OPTIONS));
+var myChart = echarts.init(dom, null, {
+  renderer: "canvas",
+  useDirtyRect: false,
+});
+
+var app = {};
+
+var option = createOption(data);
+
+if (option && typeof option === "object") {
+  myChart.setOption(option);
+}
+
+window.addEventListener("resize", myChart.resize);
