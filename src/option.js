@@ -1,4 +1,4 @@
-export default function createOption(data) {
+export default function createOption(data, value) {
   return {
     legend: {},
     radar: [
@@ -16,7 +16,7 @@ export default function createOption(data) {
           color: "black",
           borderRadius: 3,
           padding: [3, 5],
-          fontSize: 25,
+          fontSize: 20,
         },
       },
     ],
@@ -26,7 +26,7 @@ export default function createOption(data) {
         radarIndex: 0,
         data: [
           {
-            value: [50, 100, 250, 150, 150],
+            value: value,
             symbol: "circle",
             symbolSize: 0,
             lineStyle: {
