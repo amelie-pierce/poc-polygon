@@ -1,8 +1,8 @@
 import createOption from "./option.js";
 
 const data = {
-  size: 250,
-  qty: 5,
+  size: 300,
+  qty: 6,
 };
 
 var dom = document.getElementById("chart-container");

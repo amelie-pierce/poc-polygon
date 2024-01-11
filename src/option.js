@@ -4,11 +4,11 @@ export default function createOption(data) {
     radar: [
       {
         indicator: [
-          { text: "Human", max: data.size },
-          { text: "System", max: data.size },
-          { text: "People", max: data.size },
-          { text: "Process", max: data.size },
+          { text: "Technology", max: data.size },
           { text: "Influence", max: data.size },
+          { text: "Process", max: data.size },
+          { text: "People", max: data.size },
+          { text: "System", max: data.size },
         ],
         center: ["50%", "50%"],
         radius: data.size,
@@ -16,6 +16,7 @@ export default function createOption(data) {
           color: "black",
           borderRadius: 3,
           padding: [3, 5],
+          fontSize: 25,
         },
       },
     ],
@@ -25,19 +26,17 @@ export default function createOption(data) {
         radarIndex: 0,
         data: [
           {
-            value: [200, 200, 50, 200, 150],
+            value: [50, 100, 250, 150, 150],
             symbol: "circle",
             symbolSize: 0,
             lineStyle: {
               type: "solid",
               color: "black",
+              width: 2,
+              color: "orange",
             },
             areaStyle: {
               color: "transparent",
-            },
-            lineStyle: {
-              width: 2,
-              color: "orange",
             },
             label: {
               show: false,
@@ -65,12 +64,36 @@ export default function createOption(data) {
             lineStyle: {
               type: "dashed",
               color: "gray",
+              width: 1,
+              opacity: 0.5,
             },
             label: {
               show: true,
               color: "black",
               formatter: function (params) {
-                return "Hello world";
+                let label;
+
+                switch (params.dimensionIndex) {
+                  case 0:
+                    label = "Creates";
+                    break;
+                  case 1:
+                    label = "Community";
+                    break;
+                  case 2:
+                    label = "Defines";
+                    break;
+                  case 3:
+                    label = "Manages";
+                    break;
+                  case 4:
+                    label = "Leads";
+                    break;
+                  default:
+                    break;
+                }
+
+                return label;
               },
             },
           },
@@ -82,7 +105,6 @@ export default function createOption(data) {
         data: [
           {
             value: [
-              data.size - (data.size / data.qty) * 2,
               data.size - (data.size / data.qty) * 2,
               data.size - (data.size / data.qty) * 2,
               data.size - (data.size / data.qty) * 2,
@@ -96,12 +118,36 @@ export default function createOption(data) {
             lineStyle: {
               type: "dashed",
               color: "gray",
+              width: 1,
+              opacity: 0.5,
             },
             label: {
               show: true,
               color: "black",
               formatter: function (params) {
-                return "lorem";
+                let label;
+
+                switch (params.dimensionIndex) {
+                  case 0:
+                    label = "Masters";
+                    break;
+                  case 1:
+                    label = "Company";
+                    break;
+                  case 2:
+                    label = "Adjusts";
+                    break;
+                  case 3:
+                    label = "Coordinates";
+                    break;
+                  case 4:
+                    label = "Evolves";
+                    break;
+                  default:
+                    break;
+                }
+
+                return label;
               },
             },
           },
@@ -119,7 +165,6 @@ export default function createOption(data) {
               data.size - (data.size / data.qty) * 3,
               data.size - (data.size / data.qty) * 3,
               data.size - (data.size / data.qty) * 3,
-              data.size - (data.size / data.qty) * 3,
             ],
             // name: 'Data C',
             symbol: "circle",
@@ -127,12 +172,37 @@ export default function createOption(data) {
             lineStyle: {
               type: "dashed",
               color: "gray",
+              width: 1,
+              opacity: 0.5,
             },
             label: {
               show: true,
               color: "black",
               formatter: function (params) {
-                return "ispum";
+                let label;
+
+                switch (params.dimensionIndex) {
+                  case 0:
+                    label = "Evangelizes";
+                    break;
+                  case 1:
+                    label = `Multiple
+Teams`;
+                    break;
+                  case 2:
+                    label = "Challenges";
+                    break;
+                  case 3:
+                    label = "Mentors";
+                    break;
+                  case 4:
+                    label = "Owns";
+                    break;
+                  default:
+                    break;
+                }
+
+                return label;
               },
             },
           },
@@ -150,7 +220,6 @@ export default function createOption(data) {
               data.size - (data.size / data.qty) * 4,
               data.size - (data.size / data.qty) * 4,
               data.size - (data.size / data.qty) * 4,
-              data.size - (data.size / data.qty) * 4,
             ],
             // name: 'Data C',
             symbol: "circle",
@@ -158,12 +227,90 @@ export default function createOption(data) {
             lineStyle: {
               type: "dashed",
               color: "gray",
+              width: 1,
+              opacity: 0.5,
             },
             label: {
               show: true,
               color: "black",
               formatter: function (params) {
-                return "smallest";
+                let label;
+
+                switch (params.dimensionIndex) {
+                  case 0:
+                    label = "Specializes";
+                    break;
+                  case 1:
+                    label = "Team";
+                    break;
+                  case 2:
+                    label = "Enforces";
+                    break;
+                  case 3:
+                    label = "Supports";
+                    break;
+                  case 4:
+                    label = "Designs";
+                    break;
+                  default:
+                    break;
+                }
+
+                return label;
+              },
+            },
+          },
+        ],
+      },
+      {
+        type: "radar",
+        radarIndex: 0,
+        data: [
+          {
+            value: [
+              data.size - (data.size / data.qty) * 5,
+              data.size - (data.size / data.qty) * 5,
+              data.size - (data.size / data.qty) * 5,
+              data.size - (data.size / data.qty) * 5,
+              data.size - (data.size / data.qty) * 5,
+              data.size - (data.size / data.qty) * 5,
+            ],
+            // name: 'Data C',
+            symbol: "circle",
+            symbolSize: 0,
+            lineStyle: {
+              type: "dashed",
+              color: "gray",
+              width: 1,
+              opacity: 0.5,
+            },
+            label: {
+              show: true,
+              color: "black",
+              formatter: function (params) {
+                let label;
+
+                switch (params.dimensionIndex) {
+                  case 0:
+                    label = "Adopts";
+                    break;
+                  case 1:
+                    label = "Subsystem";
+                    break;
+                  case 2:
+                    label = "Follows/";
+                    break;
+                  case 3:
+                    label = "Learns";
+                    break;
+                  case 4:
+                    label = "Enhances";
+                    break;
+                  default:
+                    break;
+                }
+
+                return label;
               },
             },
           },
