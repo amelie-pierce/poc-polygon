@@ -1,1 +1,26 @@
-node_modules
+# Node modules
+node_modules/
+
+# Build artifacts
+/dist
+/build
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+
+# User-specific files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
