@@ -1,13 +1,13 @@
-const createCustomDatasetStyle = (customStyle) => {
-    const defaultDatasetStyle = {
-      backgroundColor: "transparent",
-      borderColor: "blue",
-    };
-  
-    return {
-      ...defaultDatasetStyle,
-      ...customStyle,
-    };
-}
+const DEFAULT_STYLES = {
+  backgroundColor: "rgba(75, 192, 192, 0.2)",
+  borderColor: "rgb(75, 192, 192)",
+  borderWidth: 2,
+};
 
-export default createCustomDatasetStyle
+const createCustomDatasetStyle = (customStyle = DEFAULT_STYLES) => {
+  return {
+    ...customStyle,
+  };
+};
+
+export default createCustomDatasetStyle;

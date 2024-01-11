@@ -16,7 +16,17 @@
   \***********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst data = {\n  labels: [\n    \"Eating\",\n    \"Drinking\",\n    \"Sleeping\",\n    \"Designing\",\n    \"Coding\",\n    \"Cycling\",\n    \"Running\",\n  ],\n  datasets: [\n    {\n      label: \"My First Dataset\",\n      data: [65, 59, 90, 81, 56, 55, 40],\n      fill: true,\n      backgroundColor: \"rgba(255, 99, 132, 0.2)\",\n      borderColor: \"rgb(255, 99, 132)\",\n      pointBackgroundColor: \"rgb(255, 99, 132)\",\n      pointBorderColor: \"#fff\",\n      pointHoverBackgroundColor: \"#fff\",\n      pointHoverBorderColor: \"rgb(255, 99, 132)\",\n    },\n  ],\n};\n\nconst chartOptions = {\n  type: \"radar\",\n  data: data,\n  options: {\n    elements: {\n      line: {\n        borderWidth: 3,\n      },\n    },\n  },\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chartOptions);\n\n\n//# sourceURL=webpack://poc-polygon/./src/config.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _style_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.js */ \"./src/style.js\");\n/* harmony import */ var _createCustomDataset_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createCustomDataset.js */ \"./src/createCustomDataset.js\");\n\n\n\nconst DEFAULT_ATTRIBUTES = {\n  labels: [\"Technology\", \"System\", \"People\", \"Process\", \"Influence\"],\n  datasets: {\n    label: \"Growth Up Chart\",\n    data: [1, 2, 3, 4, 5],\n  },\n  options: {},\n};\n\nconst userRadarDataset = (0,_createCustomDataset_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\n  DEFAULT_ATTRIBUTES.labels,\n  DEFAULT_ATTRIBUTES.datasets.data,\n  DEFAULT_ATTRIBUTES.datasets.label,\n  (0,_style_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\n);\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userRadarDataset);\n\n\n//# sourceURL=webpack://poc-polygon/./src/config.js?");
+
+/***/ }),
+
+/***/ "./src/createCustomDataset.js":
+/*!************************************!*\
+  !*** ./src/createCustomDataset.js ***!
+  \************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createCustomDataset)\n/* harmony export */ });\nconst DEFAULT_CONFIGS = {\n  styles: {\n    fill: true,\n    backgroundColor: \"rgba(255, 99, 132, 0.2)\",\n    borderColor: \"rgb(255, 99, 132)\",\n    pointBackgroundColor: \"rgb(255, 99, 132)\",\n    pointBorderColor: \"#fff\",\n    pointHoverBackgroundColor: \"#fff\",\n    pointHoverBorderColor: \"rgb(255, 99, 132)\",\n  },\n};\n\nfunction createCustomDataset(\n  labels,\n  data,\n  dataSetLabel,\n  styleOptions = {}\n) {\n  const mergedStyleOptions = { ...DEFAULT_CONFIGS.styles, ...styleOptions };\n\n  return {\n    labels: labels,\n    datasets: [\n      {\n        label: dataSetLabel,\n        data: data,\n        ...mergedStyleOptions,\n      },\n    ],\n  };\n}\n\n\n//# sourceURL=webpack://poc-polygon/./src/createCustomDataset.js?");
 
 /***/ }),
 
@@ -26,7 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config.js */ \"./src/config.js\");\n\n\nconst ctx = document.getElementById(\"chart\");\n\nnew Chart(ctx, _config_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n\n//# sourceURL=webpack://poc-polygon/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config.js */ \"./src/config.js\");\n\n\nconst CHART_OPTIONS = {\n  elements: {\n    line: {\n      borderWidth: 2,\n    },\n  },\n};\n\nconst createChartConfig = (\n  type = \"radar\",\n  data = _config_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  options = CHART_OPTIONS\n) => {\n  return {\n    type: type,\n    data: data,\n    options: options,\n  };\n};\n\nconst ctx = document.getElementById(\"chart\");\nnew Chart(ctx, createChartConfig(\"radar\", _config_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"], CHART_OPTIONS));\n\n\n//# sourceURL=webpack://poc-polygon/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/style.js":
+/*!**********************!*\
+  !*** ./src/style.js ***!
+  \**********************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst DEFAULT_STYLES = {\n  backgroundColor: \"rgba(75, 192, 192, 0.2)\",\n  borderColor: \"rgb(75, 192, 192)\",\n  borderWidth: 2,\n};\n\nconst createCustomDatasetStyle = (customStyle = DEFAULT_STYLES) => {\n  return {\n    ...customStyle,\n  };\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createCustomDatasetStyle);\n\n\n//# sourceURL=webpack://poc-polygon/./src/style.js?");
 
 /***/ })
 
