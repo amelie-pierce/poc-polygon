@@ -18,6 +18,19 @@ export default function createOption(data, value) {
           padding: [3, 5],
           fontSize: 20,
         },
+        splitNumber: data.qty,
+        // splitArea: {
+        //   areaStyle: {
+        //     color: ["blue", "red", "green", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
+        //     shadowColor: "rgba(0, 0, 0, 0.2)",
+        //     shadowBlur: 10,
+        //   },
+        // },
+        // splitLine: {
+        //   lineStyle: {
+        //     color: "#FFFFFF",
+        //   },
+        // },
       },
     ],
     series: [
