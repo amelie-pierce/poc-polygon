@@ -19,18 +19,38 @@ export default function createOption(data, value) {
           fontSize: 20,
         },
         splitNumber: data.qty,
-        // splitArea: {
-        //   areaStyle: {
-        //     color: ["blue", "red", "green", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
-        //     shadowColor: "rgba(0, 0, 0, 0.2)",
-        //     shadowBlur: 10,
-        //   },
-        // },
-        // splitLine: {
-        //   lineStyle: {
-        //     color: "#FFFFFF",
-        //   },
-        // },
+        splitArea: {
+          areaStyle: {
+            color: [
+              "#FFFFFF",
+              "#FFFFFF",
+              "#FFFFFF",
+              "#FFFFFF",
+              "#FFFFFF",
+              "#FFFFFF",
+            ],
+            // shadowColor: "rgba(0, 0, 0, 0.2)",
+            // shadowBlur: 10,
+          },
+        },
+        splitLine: {
+          lineStyle: {
+            color: [
+              "transparent",
+              "transparent",
+              "transparent",
+              "transparent",
+              "transparent",
+              "transparent",
+              "black",
+            ],
+          },
+        },
+        axisLine: {
+          lineStyle: {
+            color: "black",
+          },
+        },
       },
     ],
     series: [
@@ -63,7 +83,6 @@ export default function createOption(data, value) {
         data: [
           {
             value: [
-              data.size - data.size / data.qty,
               data.size - data.size / data.qty,
               data.size - data.size / data.qty,
               data.size - data.size / data.qty,
