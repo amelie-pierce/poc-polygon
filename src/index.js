@@ -1,8 +1,9 @@
+import { INIT_VALUE } from "./shared/constants.js";
 import createOption from "./option.js";
 
 const data = {
   size: 300,
-  qty: 6,
+  qty: 5,
 };
 
 var dom = document.getElementById("chart-container");
@@ -12,7 +13,7 @@ var myChart = echarts.init(dom, null, {
   useDirtyRect: false,
 });
 
-let value = [0, 0, 0, 0, 0];
+const value = INIT_VALUE;
 
 var option = createOption(data, value);
 

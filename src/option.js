@@ -1,8 +1,17 @@
+import {
+  SERIES_OPTION_OUTLINE,
+  RADAR_OPTION_STYLING,
+} from "./shared/constants.js";
+
+const createSeriesLayer = () => {};
+
 export default function createOption(data, value) {
+  const divisor = data.qty + 1;
+
   return {
-    legend: {},
     radar: [
       {
+        ...RADAR_OPTION_STYLING,
         indicator: [
           { text: "Technology", max: data.size },
           { text: "Influence", max: data.size },
@@ -10,72 +19,13 @@ export default function createOption(data, value) {
           { text: "People", max: data.size },
           { text: "System", max: data.size },
         ],
-        center: ["50%", "50%"],
         radius: data.size,
-        axisName: {
-          color: "black",
-          borderRadius: 3,
-          padding: [3, 5],
-          fontSize: 20,
-        },
-        splitNumber: data.qty,
-        splitArea: {
-          areaStyle: {
-            color: [
-              "#FFFFFF",
-              "#FFFFFF",
-              "#FFFFFF",
-              "#FFFFFF",
-              "#FFFFFF",
-              "#FFFFFF",
-            ],
-            // shadowColor: "rgba(0, 0, 0, 0.2)",
-            // shadowBlur: 10,
-          },
-        },
-        splitLine: {
-          lineStyle: {
-            color: [
-              "transparent",
-              "transparent",
-              "transparent",
-              "transparent",
-              "transparent",
-              "transparent",
-              "black",
-            ],
-          },
-        },
-        axisLine: {
-          lineStyle: {
-            color: "black",
-          },
-        },
+        splitNumber: divisor,
       },
     ],
     series: [
       {
-        type: "radar",
-        radarIndex: 0,
-        data: [
-          {
-            value: value,
-            symbol: "circle",
-            symbolSize: 0,
-            lineStyle: {
-              type: "solid",
-              color: "black",
-              width: 2,
-              color: "orange",
-            },
-            areaStyle: {
-              color: "transparent",
-            },
-            label: {
-              show: false,
-            },
-          },
-        ],
+        ...SERIES_OPTION_OUTLINE,
       },
       {
         type: "radar",
@@ -83,19 +33,18 @@ export default function createOption(data, value) {
         data: [
           {
             value: [
-              data.size - data.size / data.qty,
-              data.size - data.size / data.qty,
-              data.size - data.size / data.qty,
-              data.size - data.size / data.qty,
-              data.size - data.size / data.qty,
-              data.size - data.size / data.qty,
+              data.size - data.size / divisor,
+              data.size - data.size / divisor,
+              data.size - data.size / divisor,
+              data.size - data.size / divisor,
+              data.size - data.size / divisor,
+              data.size - data.size / divisor,
             ],
-            // name: 'Data C',
             symbol: "circle",
-            symbolSize: 0,
+            symbolSize: 4,
             lineStyle: {
               type: "dashed",
-              color: "gray",
+              color: "black",
               width: 1,
               opacity: 0.5,
             },
@@ -137,19 +86,18 @@ export default function createOption(data, value) {
         data: [
           {
             value: [
-              data.size - (data.size / data.qty) * 2,
-              data.size - (data.size / data.qty) * 2,
-              data.size - (data.size / data.qty) * 2,
-              data.size - (data.size / data.qty) * 2,
-              data.size - (data.size / data.qty) * 2,
-              data.size - (data.size / data.qty) * 2,
+              data.size - (data.size / divisor) * 2,
+              data.size - (data.size / divisor) * 2,
+              data.size - (data.size / divisor) * 2,
+              data.size - (data.size / divisor) * 2,
+              data.size - (data.size / divisor) * 2,
+              data.size - (data.size / divisor) * 2,
             ],
-            //name: 'Data C',
             symbol: "circle",
-            symbolSize: 0,
+            symbolSize: 4,
             lineStyle: {
               type: "dashed",
-              color: "gray",
+              color: "black",
               width: 1,
               opacity: 0.5,
             },
@@ -191,19 +139,18 @@ export default function createOption(data, value) {
         data: [
           {
             value: [
-              data.size - (data.size / data.qty) * 3,
-              data.size - (data.size / data.qty) * 3,
-              data.size - (data.size / data.qty) * 3,
-              data.size - (data.size / data.qty) * 3,
-              data.size - (data.size / data.qty) * 3,
-              data.size - (data.size / data.qty) * 3,
+              data.size - (data.size / divisor) * 3,
+              data.size - (data.size / divisor) * 3,
+              data.size - (data.size / divisor) * 3,
+              data.size - (data.size / divisor) * 3,
+              data.size - (data.size / divisor) * 3,
+              data.size - (data.size / divisor) * 3,
             ],
-            // name: 'Data C',
             symbol: "circle",
-            symbolSize: 0,
+            symbolSize: 4,
             lineStyle: {
               type: "dashed",
-              color: "gray",
+              color: "black",
               width: 1,
               opacity: 0.5,
             },
@@ -246,19 +193,18 @@ Teams`;
         data: [
           {
             value: [
-              data.size - (data.size / data.qty) * 4,
-              data.size - (data.size / data.qty) * 4,
-              data.size - (data.size / data.qty) * 4,
-              data.size - (data.size / data.qty) * 4,
-              data.size - (data.size / data.qty) * 4,
-              data.size - (data.size / data.qty) * 4,
+              data.size - (data.size / divisor) * 4,
+              data.size - (data.size / divisor) * 4,
+              data.size - (data.size / divisor) * 4,
+              data.size - (data.size / divisor) * 4,
+              data.size - (data.size / divisor) * 4,
+              data.size - (data.size / divisor) * 4,
             ],
-            // name: 'Data C',
             symbol: "circle",
-            symbolSize: 0,
+            symbolSize: 4,
             lineStyle: {
               type: "dashed",
-              color: "gray",
+              color: "black",
               width: 1,
               opacity: 0.5,
             },
@@ -300,19 +246,18 @@ Teams`;
         data: [
           {
             value: [
-              data.size - (data.size / data.qty) * 5,
-              data.size - (data.size / data.qty) * 5,
-              data.size - (data.size / data.qty) * 5,
-              data.size - (data.size / data.qty) * 5,
-              data.size - (data.size / data.qty) * 5,
-              data.size - (data.size / data.qty) * 5,
+              data.size - (data.size / divisor) * 5,
+              data.size - (data.size / divisor) * 5,
+              data.size - (data.size / divisor) * 5,
+              data.size - (data.size / divisor) * 5,
+              data.size - (data.size / divisor) * 5,
+              data.size - (data.size / divisor) * 5,
             ],
-            // name: 'Data C',
             symbol: "circle",
-            symbolSize: 0,
+            symbolSize: 4,
             lineStyle: {
               type: "dashed",
-              color: "gray",
+              color: "black",
               width: 1,
               opacity: 0.5,
             },
