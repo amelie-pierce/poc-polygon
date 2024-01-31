@@ -13,6 +13,8 @@ var myChart = echarts.init(dom, null, {
   useDirtyRect: false,
 });
 
+var app = {};
+
 const value = INIT_VALUE;
 
 var option = createOption(data, value);
