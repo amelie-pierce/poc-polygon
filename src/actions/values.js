@@ -1,5 +1,3 @@
-import { INIT_VALUE } from "../shared/constants.js";
-
 export const parseValueArray = (size, divisor, layerOrder) => [
   size - (size / divisor) * layerOrder,
   size - (size / divisor) * layerOrder,
@@ -9,7 +7,7 @@ export const parseValueArray = (size, divisor, layerOrder) => [
   size - (size / divisor) * layerOrder,
 ];
 
-export const createValueLine = (newValue = INIT_VALUE) => {
+export const createValueLine = (newValue) => {
   return {
     type: "radar",
     radarIndex: 0,

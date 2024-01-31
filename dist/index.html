@@ -1,4 +1,10 @@
-<!doctype html><html><head><title>Polygons</title><style>* {
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Polygons</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+    <style>
+      * {
         margin: 0;
         padding: 0;
       }
@@ -6,5 +12,39 @@
       #chart-container {
         position: relative;
         height: 100vh;
-        width: 100vh;
-      }</style><script defer="defer" src="bundle.js"></script></head><body><div id="chart-container"></div><div class="input-group"><label for="inputField1">Technology</label> <input type="number" id="inputField1"/></div><div class="input-group"><label for="inputField5">System</label> <input type="number" id="inputField5"/></div><div class="input-group"><label for="inputField4">People</label> <input type="number" id="inputField4"/></div><div class="input-group"><label for="inputField3">Process</label> <input type="number" id="inputField3"/></div><div class="input-group"><label for="inputField2">Influence</label> <input type="number" id="inputField2"/></div><script src="./echarts.min.js"></script><script type="module" src="./src/index.js"></script></body></html>
+        overflow: hidden;
+      }
+    </style>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <div id="chart-container"></div>
+
+    <div class="input-group">
+      <label for="inputField1">Technology</label>
+      <input type="number" id="inputField1" />
+    </div>
+
+    <div class="input-group">
+      <label for="inputField5">System</label>
+      <input type="number" id="inputField5" />
+    </div>
+
+    <div class="input-group">
+      <label for="inputField4">People</label>
+      <input type="number" id="inputField4" />
+    </div>
+
+    <div class="input-group">
+      <label for="inputField3">Process</label>
+      <input type="number" id="inputField3" />
+    </div>
+
+    <div class="input-group">
+      <label for="inputField2">Influence</label>
+      <input type="number" id="inputField2" />
+    </div>
+
+    <script src="./echarts.min.js"></script>
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>

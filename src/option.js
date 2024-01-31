@@ -1,10 +1,9 @@
-import { RADAR_DEFAULT_STYLING } from "./shared/constants.js";
+import { RADAR_DEFAULT_STYLING, INIT_VALUE } from "./shared/constants.js";
 
 import { createSeriesLayer } from "./actions/series.js";
-
 import { parseValueArray, createValueLine } from "./actions/values.js";
 
-export default function createOption(data, newValue) {
+export default function createOption(data, newValue = INIT_VALUE) {
   const divisor = data.qty + 1;
 
   const valueArray_1 = parseValueArray(data.size, divisor, 1);

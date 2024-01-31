@@ -15,9 +15,7 @@ var myChart = echarts.init(dom, null, {
 
 var app = {};
 
-const value = INIT_VALUE;
-
-var option = createOption(data, value);
+var option = createOption(data);
 
 if (option && typeof option === "object") {
   myChart.setOption(option);
@@ -38,6 +36,8 @@ function updateChart(newValue) {
     myChart.setOption(option);
   }
 }
+
+const value = INIT_VALUE;
 
 inputField1.addEventListener("change", function () {
   value[0] = inputField1.value;
