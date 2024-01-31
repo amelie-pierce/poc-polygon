@@ -1,11 +1,10 @@
-import {
-  SERIES_DEFAULT_OUTLINE,
-  RADAR_DEFAULT_STYLING,
-} from "./shared/constants.js";
+import { RADAR_DEFAULT_STYLING } from "./shared/constants.js";
 
-import { createSeriesLayer, parseValueArray } from "./actions.js";
+import { createSeriesLayer } from "./actions/series.js";
 
-export default function createOption(data, value) {
+import { parseValueArray, createValueLine } from "./actions/values.js";
+
+export default function createOption(data, newValue) {
   const divisor = data.qty + 1;
 
   const valueArray_1 = parseValueArray(data.size, divisor, 1);
@@ -15,22 +14,26 @@ export default function createOption(data, value) {
   const valueArray_5 = parseValueArray(data.size, divisor, 5);
 
   return {
+    title: {
+      text: "Basic Radar Chart",
+    },
+    legend: {},
     radar: [
       {
         ...RADAR_DEFAULT_STYLING,
         indicator: [
-          { text: "Technology", max: data.size },
-          { text: "Influence", max: data.size },
-          { text: "Process", max: data.size },
-          { text: "People", max: data.size },
-          { text: "System", max: data.size },
+          { name: "Technology" },
+          { name: "Influence" },
+          { name: "Process" },
+          { name: "People" },
+          { name: "System" },
         ],
         radius: data.size,
         splitNumber: divisor,
       },
     ],
     series: [
-      SERIES_DEFAULT_OUTLINE,
+      createValueLine(newValue),
       createSeriesLayer(valueArray_1, 1),
       createSeriesLayer(valueArray_2, 2),
       createSeriesLayer(valueArray_3, 3),

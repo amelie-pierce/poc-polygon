@@ -1,4 +1,4 @@
-import { LABELS, SERIES_DEFAULT_DATA } from "./shared/constants.js";
+import { SERIES_DEFAULT_DATA, LABELS } from "../shared/constants.js";
 
 export const createSeriesLayer = (value, layerOrder) => ({
   type: "radar",
@@ -17,15 +17,6 @@ export const createSeriesLayer = (value, layerOrder) => ({
     },
   ],
 });
-
-export const parseValueArray = (size, divisor, layerOrder) => [
-  size - (size / divisor) * layerOrder,
-  size - (size / divisor) * layerOrder,
-  size - (size / divisor) * layerOrder,
-  size - (size / divisor) * layerOrder,
-  size - (size / divisor) * layerOrder,
-  size - (size / divisor) * layerOrder,
-];
 
 export const formatLabel = (layerOrder = 1, dimensionIndex = 5) => {
   const labels = LABELS[layerOrder - 1];
