@@ -1,26 +1,5 @@
 export const INIT_VALUE = [0, 0, 0, 0, 0];
 
-export const SERIES_DEFAULT_OUTLINE = {
-  type: "radar",
-  radarIndex: 0,
-  data: [
-    {
-      value: INIT_VALUE,
-      symbol: "circle",
-      symbolSize: 0,
-      lineStyle: {
-        type: "solid",
-        color: "black",
-        width: 2,
-        color: "orange",
-      },
-      label: {
-        show: false,
-      },
-    },
-  ],
-};
-
 export const SERIES_DEFAULT_DATA = {
   symbol: "circle",
   symbolSize: 4,
