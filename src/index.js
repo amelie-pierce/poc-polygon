@@ -1,12 +1,7 @@
-import { INIT_VALUE } from "./shared/constants.js";
+import { INIT_VALUE, INIT_DATA, CATEGORIES } from "./shared/constants.js";
 import createOption from "./option.js";
 
-// import "./styles.css";
-
-const data = {
-  size: 300,
-  qty: 5,
-};
+const data = INIT_DATA;
 
 var dom = document.getElementById("chart-container");
 
@@ -25,12 +20,6 @@ if (option && typeof option === "object") {
 
 window.addEventListener("resize", myChart.resize);
 
-var inputField1 = document.getElementById("inputField1");
-var inputField2 = document.getElementById("inputField2");
-var inputField3 = document.getElementById("inputField3");
-var inputField4 = document.getElementById("inputField4");
-var inputField5 = document.getElementById("inputField5");
-
 function updateChart(newValue) {
   var option = createOption(data, newValue);
 
@@ -41,32 +30,42 @@ function updateChart(newValue) {
 
 const value = INIT_VALUE;
 
-inputField1.addEventListener("change", function () {
-  value[0] = inputField1.value;
+var myButton = document.getElementById("addPerson");
 
-  updateChart(value);
-});
+myButton.onclick = function () {
+  // Get the container element
+  var container = document.getElementById("container");
 
-inputField2.addEventListener("change", function () {
-  value[1] = inputField2.value;
+  // Loop through each item in the array
+  CATEGORIES.forEach((name, idx) => {
+    // Create a new label element
+    var newLabel = document.createElement("label");
 
-  updateChart(value);
-});
+    // Set the label text
+    var labelText = document.createTextNode(name + ": ");
+    newLabel.appendChild(labelText);
 
-inputField3.addEventListener("change", function () {
-  value[2] = inputField3.value;
+    // Create a new select element
+    var newSelect = document.createElement("select");
 
-  updateChart(value);
-});
+    // Add options from 1 to 5 to the select element
+    for (var i = 1; i <= 5; i++) {
+      var option = document.createElement("option");
+      option.value = i * 50;
+      option.text = i;
+      newSelect.appendChild(option);
+    }
 
-inputField4.addEventListener("change", function () {
-  value[3] = inputField4.value;
+    newSelect.addEventListener("change", function () {
+      value[idx] = newSelect.value;
 
-  updateChart(value);
-});
+      updateChart(value);
+    });
 
-inputField5.addEventListener("change", function () {
-  value[4] = inputField5.value;
+    // Append the select element to the label
+    newLabel.appendChild(newSelect);
 
-  updateChart(value);
-});
+    // Append the label to the container
+    container.appendChild(newLabel);
+  });
+};
