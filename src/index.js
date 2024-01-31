@@ -1,6 +1,8 @@
 import { INIT_VALUE } from "./shared/constants.js";
 import createOption from "./option.js";
 
+// import "./styles.css";
+
 const data = {
   size: 300,
   qty: 5,
