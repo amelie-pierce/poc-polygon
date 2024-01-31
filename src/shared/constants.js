@@ -1,5 +1,10 @@
 export const INIT_VALUE = [0, 0, 0, 0, 0];
 
+export const INIT_DATA = {
+  size: 300,
+  qty: 5,
+};
+
 export const SERIES_DEFAULT_DATA = {
   symbol: "circle",
   symbolSize: 4,
@@ -59,4 +64,12 @@ Teams`,
   ],
   ["Specializes", "Team", "Enforces", "Supports", "Designs"],
   ["Adopts", "Subsystem", "Follows/", "Learns", "Enhances"],
+];
+
+export const CATEGORIES = [
+  "Technology",
+  "Influence",
+  "Process",
+  "People",
+  "System",
 ];
