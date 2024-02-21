@@ -3,7 +3,7 @@ import createOption from "./option.js";
 
 // Default init attributes
 const data = INIT_DATA;
-const value = INIT_VALUE;
+const values = [];
 
 // Default init echarts
 var dom = document.getElementById("chart-container");
@@ -24,8 +24,8 @@ if (option && typeof option === "object") {
 window.addEventListener("resize", myChart.resize);
 
 // Called every time value changed
-function updateChart(newValue) {
-  var option = createOption(data, newValue);
+function updateChart(values) {
+  var option = createOption(data, values);
 
   if (option && typeof option === "object") {
     myChart.setOption(option);
@@ -42,6 +42,8 @@ myButton.onclick = function () {
   // Create new group for a person
   var newGroup = document.createElement("div");
   newGroup.className = "group-attribute";
+
+  const newValue = [...INIT_VALUE];
 
   // Loop through each item in the array
   CATEGORIES.forEach((name, idx) => {
@@ -64,9 +66,9 @@ myButton.onclick = function () {
     }
 
     newSelect.addEventListener("change", function () {
-      value[idx] = newSelect.value;
+      newValue[idx] = newSelect.value;
 
-      updateChart(value);
+      updateChart(values);
     });
 
     // Append the select element to the label
@@ -78,4 +80,6 @@ myButton.onclick = function () {
 
   // Append the group to the container
   container.appendChild(newGroup);
+
+  values.push(newValue);
 };

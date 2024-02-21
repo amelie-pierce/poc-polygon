@@ -3,7 +3,7 @@ import { RADAR_DEFAULT_STYLING, INIT_VALUE } from "./shared/constants.js";
 import { createSeriesLayer } from "./actions/series.js";
 import { parseValueArray, createValueLine } from "./actions/values.js";
 
-export default function createOption(data, newValue = INIT_VALUE) {
+export default function createOption(data, values = []) {
   const divisor = data.qty + 1;
 
   const valueArray_1 = parseValueArray(data.size, divisor, 1);
@@ -32,7 +32,7 @@ export default function createOption(data, newValue = INIT_VALUE) {
       },
     ],
     series: [
-      createValueLine(newValue),
+      createValueLine(values),
       createSeriesLayer(valueArray_1, 1),
       createSeriesLayer(valueArray_2, 2),
       createSeriesLayer(valueArray_3, 3),
