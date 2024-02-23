@@ -14,30 +14,38 @@ export default function createOption(data, values = []) {
 
   return {
     title: {
-      text: "Basic Radar Chart",
+      text: data.text,
     },
-    legend: {},
-    radar: [
-      {
-        ...RADAR_DEFAULT_STYLING,
-        indicator: [
-          { name: "Technology" },
-          { name: "Influence" },
-          { name: "Process" },
-          { name: "People" },
-          { name: "System" },
-        ],
-        radius: data.size,
-        splitNumber: divisor,
-      },
-    ],
+    tooltip: {},
+    legend: {
+      data: values.map((_, idx) => `Person ${idx + 1}`),
+    },
+    radar: {
+      ...RADAR_DEFAULT_STYLING,
+      indicator: [
+        { name: "Technology" },
+        { name: "Influence" },
+        { name: "Process" },
+        { name: "People" },
+        { name: "System" },
+      ],
+      radius: data.size,
+      splitNumber: divisor,
+    },
     series: [
-      createValueLine(values),
       createSeriesLayer(valueArray_1, 1),
       createSeriesLayer(valueArray_2, 2),
       createSeriesLayer(valueArray_3, 3),
       createSeriesLayer(valueArray_4, 4),
       createSeriesLayer(valueArray_5, 5),
+      {
+        name: "预算 vs 开销（Budget vs spending）",
+        type: "radar",
+        data: values.map((value, idx) => ({
+          value: value,
+          name: `Person ${idx + 1}`,
+        })),
+      },
     ],
   };
 }
