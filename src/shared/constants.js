@@ -38,10 +38,6 @@ export const RADAR_DEFAULT_STYLING = {
         "transparent",
         "black",
       ],
-      // type: 4, // Dashed width 4px dotted
-      // // color: "gray",
-      // width: 1,
-      // opacity: 0.5,
     },
   },
   axisLine: {

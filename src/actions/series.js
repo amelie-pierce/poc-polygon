@@ -14,6 +14,7 @@ export const createSeriesLayer = (value, layerOrder) => ({
           return formatLabel(layerOrder, params.dimensionIndex);
         },
       },
+      name: "Detail:",
     },
   ],
 });
