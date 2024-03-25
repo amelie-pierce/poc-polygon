@@ -15,7 +15,41 @@ var myChart = echarts.init(dom, null, {
 
 var app = {};
 
-var option = createOption(data);
+var styleOptions = {
+  radar: {
+    center: ["50%", "50%"],
+    axisName: {
+      color: "red",
+      borderRadius: 3,
+      padding: [3, 5],
+      fontSize: 20,
+    },
+    splitArea: {
+      show: false,
+    },
+    splitLine: {
+      lineStyle: {
+        color: [
+          "transparent",
+          "transparent",
+          "transparent",
+          "transparent",
+          "transparent",
+          "transparent",
+          "red",
+        ],
+      },
+    },
+    axisLine: {
+      lineStyle: {
+        color: "yellow",
+      },
+    },
+  }
+}
+
+// var option = createOption(data);
+var option = createOption(data, values, styleOptions);
 
 if (option && typeof option === "object") {
   myChart.setOption(option);
@@ -25,7 +59,8 @@ window.addEventListener("resize", myChart.resize);
 
 // Called every time value changed
 function updateChart(values) {
-  var option = createOption(data, values);
+  // var option = createOption(data, values);
+  var option = createOption(data, values, styleOptions);
 
   if (option && typeof option === "object") {
     myChart.setOption(option);
