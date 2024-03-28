@@ -21,19 +21,19 @@ export default function createOption(data, values = [], styleOptions) {
       data: values.map((_, idx) => `Person ${idx + 1}`),
     },
     radar: {
-      center: styleOptions?.radar?.center || ["50%", "50%"],
+      center: styleOptions?.center || ["50%", "50%"],
       axisName: {
-        color: styleOptions?.radar?.axisName?.color || "black",
-        borderRadius: styleOptions?.radar?.axisName?.borderRadius || 3,
-        padding: styleOptions?.radar?.axisName?.padding || [3, 5],
-        fontSize: styleOptions?.radar?.axisName?.fontSize || 20,
+        color: styleOptions?.axisName?.color || "black",
+        borderRadius: styleOptions?.axisName?.borderRadius || 3,
+        padding: styleOptions?.axisName?.padding || [3, 5],
+        fontSize: styleOptions?.axisName?.fontSize || 20,
       },
       splitArea: {
-        show: styleOptions?.radar?.splitArea?.show || false,
+        show: styleOptions?.splitArea?.show || false,
       },
       splitLine: {
         lineStyle: {
-          color: styleOptions?.radar?.splitLine?.lineStyle?.color || [
+          color: styleOptions?.splitLine?.lineStyle?.color || [
             "transparent",
             "transparent",
             "transparent",
@@ -46,7 +46,7 @@ export default function createOption(data, values = [], styleOptions) {
       },
       axisLine: {
         lineStyle: {
-          color: styleOptions?.radar?.axisLine?.lineStyle?.color || "black",
+          color: styleOptions?.axisLine?.lineStyle?.color || "black",
         },
       },
       indicator: [

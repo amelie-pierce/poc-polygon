@@ -16,36 +16,34 @@ var myChart = echarts.init(dom, null, {
 var app = {};
 
 var styleOptions = {
-  radar: {
-    center: ["50%", "50%"],
-    axisName: {
-      color: "red",
-      borderRadius: 3,
-      padding: [3, 5],
-      fontSize: 20,
+  center: ["50%", "50%"],
+  axisName: {
+    color: "red",
+    borderRadius: 3,
+    padding: [3, 5],
+    fontSize: 20,
+  },
+  splitArea: {
+    show: false,
+  },
+  splitLine: {
+    lineStyle: {
+      color: [
+        "transparent",
+        "transparent",
+        "transparent",
+        "transparent",
+        "transparent",
+        "transparent",
+        "red",
+      ],
     },
-    splitArea: {
-      show: false,
+  },
+  axisLine: {
+    lineStyle: {
+      color: "yellow",
     },
-    splitLine: {
-      lineStyle: {
-        color: [
-          "transparent",
-          "transparent",
-          "transparent",
-          "transparent",
-          "transparent",
-          "transparent",
-          "red",
-        ],
-      },
-    },
-    axisLine: {
-      lineStyle: {
-        color: "yellow",
-      },
-    },
-  }
+  },
 }
 
 // var option = createOption(data);
