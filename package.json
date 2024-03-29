@@ -1,6 +1,6 @@
 {
   "name": "poc-polygon",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "license": "MIT",
   "private": true,
   "type": "module",
@@ -10,8 +10,7 @@
     "build:prod": "npx webpack --mode=production"
   },
   "dependencies": {
-    "chart.js": "^4.4.0",
-    "chartjs-plugin-datalabels": "^2.2.0"
+    "cross-env": "5.0.5"
   },
   "devDependencies": {
     "css-loader": "^6.10.0",

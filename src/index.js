@@ -15,39 +15,8 @@ var myChart = echarts.init(dom, null, {
 
 var app = {};
 
-var styleOptions = {
-  center: ["50%", "50%"],
-  axisName: {
-    color: "red",
-    borderRadius: 3,
-    padding: [3, 5],
-    fontSize: 20,
-  },
-  splitArea: {
-    show: false,
-  },
-  splitLine: {
-    lineStyle: {
-      color: [
-        "transparent",
-        "transparent",
-        "transparent",
-        "transparent",
-        "transparent",
-        "transparent",
-        "red",
-      ],
-    },
-  },
-  axisLine: {
-    lineStyle: {
-      color: "yellow",
-    },
-  },
-}
-
 // var option = createOption(data);
-var option = createOption(data, values, styleOptions);
+var option = createOption(data, values);
 
 if (option && typeof option === "object") {
   myChart.setOption(option);
@@ -64,55 +33,3 @@ function updateChart(values) {
     myChart.setOption(option);
   }
 }
-
-// Get add new person button
-var myButton = document.getElementById("new-person");
-
-myButton.onclick = function () {
-  // Get the container element
-  var container = document.getElementById("container");
-
-  // Create new group for a person
-  var newGroup = document.createElement("div");
-  newGroup.className = "group-attribute";
-
-  const newValue = [...INIT_VALUE];
-
-  // Loop through each item in the array
-  CATEGORIES.forEach((name, idx) => {
-    // Create a new label element
-    var newLabel = document.createElement("label");
-
-    // Set the label text
-    var labelText = document.createTextNode(name + ": ");
-    newLabel.appendChild(labelText);
-
-    // Create a new select element
-    var newSelect = document.createElement("select");
-
-    // Add options from 0 to 5 to the select element
-    for (var i = 0; i <= 5; i++) {
-      var option = document.createElement("option");
-      option.value = i * 50;
-      option.text = i;
-      newSelect.appendChild(option);
-    }
-
-    newSelect.addEventListener("change", function () {
-      newValue[idx] = newSelect.value;
-
-      updateChart(values);
-    });
-
-    // Append the select element to the label
-    newLabel.appendChild(newSelect);
-
-    // Append the label to the group
-    newGroup.appendChild(newLabel);
-  });
-
-  // Append the group to the container
-  container.appendChild(newGroup);
-
-  values.push(newValue);
-};

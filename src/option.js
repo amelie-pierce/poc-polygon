@@ -66,7 +66,6 @@ export default function createOption(data, values = [], styleOptions) {
       createSeriesLayer(valueArray_4, 4),
       createSeriesLayer(valueArray_5, 5),
       {
-        name: "预算 vs 开销（Budget vs spending）",
         type: "radar",
         data: values.map((value, idx) => ({
           value: value,
