@@ -3,7 +3,7 @@ import { RADAR_DEFAULT_STYLING, INIT_VALUE } from "./shared/constants.js";
 import { createSeriesLayer } from "./actions/series.js";
 import { parseValueArray, createValueLine } from "./actions/values.js";
 
-export default function createOption(data, values = []) {
+export default function createOption(data, values = [], styleOptions) {
   const divisor = data.qty + 1;
 
   const valueArray_1 = parseValueArray(data.size, divisor, 1);
@@ -21,7 +21,34 @@ export default function createOption(data, values = []) {
       data: values.map((_, idx) => `Person ${idx + 1}`),
     },
     radar: {
-      ...RADAR_DEFAULT_STYLING,
+      center: styleOptions?.center || ["50%", "50%"],
+      axisName: {
+        color: styleOptions?.axisName?.color || "black",
+        borderRadius: styleOptions?.axisName?.borderRadius || 3,
+        padding: styleOptions?.axisName?.padding || [3, 5],
+        fontSize: styleOptions?.axisName?.fontSize || 20,
+      },
+      splitArea: {
+        show: styleOptions?.splitArea?.show || false,
+      },
+      splitLine: {
+        lineStyle: {
+          color: styleOptions?.splitLine?.lineStyle?.color || [
+            "transparent",
+            "transparent",
+            "transparent",
+            "transparent",
+            "transparent",
+            "transparent",
+            "black",
+          ],
+        },
+      },
+      axisLine: {
+        lineStyle: {
+          color: styleOptions?.axisLine?.lineStyle?.color || "black",
+        },
+      },
       indicator: [
         { name: "Technology" },
         { name: "Influence" },

@@ -8,3 +8,13 @@
   height: 100vh;
   overflow: hidden;
 }
+
+.group-attribute,
+#new-person {
+  margin: 20px;
+}
+
+.group-attribute {
+  display: flex;
+  gap: 20px;
+}
