@@ -1,9 +1,14 @@
 {
   "name": "poc-polygon",
   "version": "1.1.0",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.js",
   "license": "MIT",
   "private": true,
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "npx nodemon -w --exec src/index.js",
     "build:dev": "npx webpack --mode=development",
