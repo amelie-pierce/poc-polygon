@@ -3,13 +3,12 @@
   <head>
     <title>Polygons</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
+      #chart-container,
+      html,
+      body {
+        width: 100%;
       }
-
       #chart-container {
-        position: relative;
         height: 100vh;
         overflow: hidden;
       }
@@ -17,10 +16,5 @@
   </head>
   <body>
     <div id="chart-container"></div>
-
-    <div id="container"></div>
-
-    <script src="./echarts.min.js"></script>
-    <script type="module" src="./src/index.js"></script>
   </body>
 </html>

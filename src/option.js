@@ -1,9 +1,18 @@
-import { RADAR_DEFAULT_STYLING, INIT_VALUE } from "./shared/constants.js";
+import "../echarts.min.js";
+import {
+  RADAR_DEFAULT_STYLING,
+  INIT_VALUE,
+  INIT_DATA,
+} from "./shared/constants.js";
 
 import { createSeriesLayer } from "./actions/series.js";
 import { parseValueArray, createValueLine } from "./actions/values.js";
 
-export default function createOption(data, values = [], styleOptions) {
+export default function createOption(
+  data = INIT_DATA,
+  values = [],
+  styleOptions
+) {
   const divisor = data.qty + 1;
 
   const valueArray_1 = parseValueArray(data.size, divisor, 1);
