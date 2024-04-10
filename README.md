@@ -1,8 +1,46 @@
-<style>
-    table td {
-        vertical-align: top;
-    }
-</style>
+# Development
+#### 1. Clone the repo:
+ `git clone https://github.com/amelie-pierce/poc-polygon.git`
+
+#### 2. Build the library on development mode:
+`cd poc-polygon && yarn build:dev`
+
+#### 3. Basic usage: 
+
+ - Add  `<script  src="../poc-polygon/dist/bundle.js"></script>` within the `body` tag
+ - Init the chart (from echart)
+ - Set the chart's value.
+ - Assign the chart with the value.
+
+##### Example:
+
+your-index.html
+```
+<body>
+...
+<div id="your-chart-id"></div>
+
+<script src="../poc-polygon/dist/bundle.js"></script>
+// Then exec or import your script here
+...
+</body>
+```
+
+your-script.js
+```
+...
+// Default init echarts
+
+var chartDom = document.getElementById("your-chart-id");
+var myChart = echarts.init(chartDom);
+
+// Set the value (Array of 5 numbers)
+var  option = polygon.createOption([50, 100, 100, 99, 0]);
+
+// Assign the chart with the value
+option && myChart.setOption(option);
+...
+```
 
 # Custom Theme
 
