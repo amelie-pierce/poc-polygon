@@ -13,4 +13,4 @@ window.addEventListener("resize", function () {
   myChart.resize();
 });
 
-// export default createOption;
+export default createOption;
