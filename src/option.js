@@ -1,4 +1,3 @@
-import "../echarts.min.js";
 import {
   RADAR_DEFAULT_STYLING,
   INIT_VALUE,
@@ -8,11 +7,7 @@ import {
 import { createSeriesLayer } from "./actions/series.js";
 import { parseValueArray, createValueLine } from "./actions/values.js";
 
-export default function createOption(
-  data = INIT_DATA,
-  values = [],
-  styleOptions
-) {
+export function createOption(values = [], styleOptions, data = INIT_DATA) {
   const divisor = data.qty + 1;
 
   const valueArray_1 = parseValueArray(data.size, divisor, 1);
@@ -27,7 +22,7 @@ export default function createOption(
     },
     tooltip: {},
     legend: {
-      data: values.map((_, idx) => `Person ${idx + 1}`),
+      data: "Person growth",
     },
     radar: {
       center: styleOptions?.center || ["50%", "50%"],
@@ -74,13 +69,7 @@ export default function createOption(
       createSeriesLayer(valueArray_3, 3),
       createSeriesLayer(valueArray_4, 4),
       createSeriesLayer(valueArray_5, 5),
-      {
-        type: "radar",
-        data: values.map((value, idx) => ({
-          value: value,
-          name: `Person ${idx + 1}`,
-        })),
-      },
+      createValueLine(values),
     ],
   };
 }
