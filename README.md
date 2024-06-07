@@ -1,46 +1,67 @@
-# Development
-#### 1. Clone the repo:
- `git clone https://github.com/amelie-pierce/poc-polygon.git`
 
-#### 2. Build the library on development mode:
+# Installation
+
+#### 1. Clone the repo
+`git clone https://github.com/amelie-pierce/poc-polygon.git`
+
+#### 2. Build the library on development mode
 `cd poc-polygon && yarn build:dev`
+ 
+# Usage
 
-#### 3. Basic usage: 
-
- - Add  `<script  src="../poc-polygon/dist/bundle.js"></script>` within the `body` tag
- - Init the chart (from echart)
- - Set the chart's value.
- - Assign the chart with the value.
-
-##### Example:
-
-your-index.html
+**Import the chart** within your html body
 ```
 <body>
-...
-<div id="your-chart-id"></div>
-
-<script src="../poc-polygon/dist/bundle.js"></script>
-// Then exec or import your script here
-...
-</body>
+	...
+	<script src="../poc-polygon/dist/bundle.js"></script>
+</body
 ```
 
-your-script.js
+**Add an element with id** for recognizing the chart
 ```
-...
-// Default init echarts
+<body>
+	<div id="your-chart-id"></div>
 
+	...
+	<script src="../poc-polygon/dist/bundle.js"></script>
+</body
+```
+
+**Start implementing your chart** within your script
+
+```
+// Init the chart dom
 var chartDom = document.getElementById("your-chart-id");
 var myChart = echarts.init(chartDom);
 
-// Set the value (Array of 5 numbers)
-var  option = polygon.createOption([50, 100, 100, 99, 0]);
+// Set the data
+var data = [
+	{
+		name: "Person 1",
+		value: {
+			technology: 300,
+			system: 200,
+			influence: 240,
+			people: 120,
+			process: 150,
+		}
+	}
+]
 
-// Assign the chart with the value
-option && myChart.setOption(option);
-...
+// Assign the chart with the data
+var chartOption = polygon.createOption({ data, styles, options });
+chartOption && myChart.setOption(chartOption);
 ```
+
+## Properties
+
+|attribute|type|default|example|
+|--|--|--|--|
+|data|array|[]|<pre>[<br>	{<br>		name: "Person 1", <br>		value: { <br>			technology: 300, <br>			system: 200, <br>			influence: 240, <br>			people: 120, <br>			process: 150 }<br>	}, <br>	{ <br>		name: "Person 2", <br>		value: { <br>			technology: 300, <br>			system: 200, <br>			influence: 240, <br>			people: 120, <br>			process: 150 <br>	}<br>]</pre>|
+|options|object|undefined|<pre>{<br>	title: {<br>		text: "Chart Title"<br>	}<br>}</pre>|
+|styles*|
+
+\* see [Custom Theme](https://github.com/nnnghia98/poc-polygon?tab=readme-ov-file#custom-theme)
 
 # Custom Theme
 
