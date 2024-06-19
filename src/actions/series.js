@@ -1,11 +1,11 @@
-import { SERIES_DEFAULT_DATA, LABELS } from "../shared/constants.js";
+import { SERIES_DEFAULT_DATA_OPTIONS, LABELS } from "../shared/constants.js";
 
 export const createSeriesLayer = (value, layerOrder) => ({
   type: "radar",
   radarIndex: 0,
   data: [
     {
-      ...SERIES_DEFAULT_DATA,
+      ...SERIES_DEFAULT_DATA_OPTIONS,
       value: value,
       label: {
         show: true,
@@ -14,7 +14,7 @@ export const createSeriesLayer = (value, layerOrder) => ({
           return formatLabel(layerOrder, params.dimensionIndex);
         },
       },
-      name: "Detail:",
+      // name: "Detail:",
     },
   ],
 });

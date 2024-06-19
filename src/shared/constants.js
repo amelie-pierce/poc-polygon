@@ -1,11 +1,16 @@
-export const INIT_VALUE = [0, 0, 0, 0, 0];
-
-export const INIT_DATA = {
-  size: 300,
-  qty: 5,
+export const INIT_VALUE = {
+  technology: 0,
+  system: 0,
+  influence: 0,
+  people: 0,
+  process: 0,
 };
 
-export const SERIES_DEFAULT_DATA = {
+export const DEFAULT_INDICATOR_MAX = 300;
+export const DIVISOR = 6;
+export const LAYER = 5;
+
+export const SERIES_DEFAULT_DATA_OPTIONS = {
   symbol: "circle",
   symbolSize: 4,
   lineStyle: {
@@ -59,7 +64,7 @@ Teams`,
     "Owns",
   ],
   ["Specializes", "Team", "Enforces", "Supports", "Designs"],
-  ["Adopts", "Subsystem", "Follows/", "Learns", "Enhances"],
+  ["Adopts", "Subsystem", "Follows", "Learns", "Enhances"],
 ];
 
 export const CATEGORIES = [
