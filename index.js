@@ -47,3 +47,31 @@ option && myChart.setOption(option);
 window.addEventListener("resize", function () {
   myChart.resize();
 });
+
+// Export image
+document.getElementById('exportButton').addEventListener('click', () => {
+  const canvas = document.querySelector('#chart-container canvas')
+  // Tạo một canvas tạm thời
+  const tempCanvas = document.createElement('canvas');
+  const tempCtx = tempCanvas.getContext('2d');
+  tempCanvas.width = canvas.width;
+  tempCanvas.height = canvas.height;
+
+  // Đặt màu nền trắng cho canvas tạm thời
+  tempCtx.fillStyle = 'white';
+  tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+  // Vẽ nội dung của canvas chính lên canvas tạm thời
+  tempCtx.drawImage(canvas, 0, 0);
+
+  // Lấy dữ liệu hình ảnh từ canvas tạm thời
+  const image = tempCanvas.toDataURL('image/png');
+
+  // Tạo một liên kết tạm thời để tải xuống hình ảnh
+  const link = document.createElement('a');
+  link.href = image;
+  link.download = 'image.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
