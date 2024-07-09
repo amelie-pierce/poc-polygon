@@ -6,43 +6,21 @@ var chartDom = document.getElementById("chart-container");
 var myChart = echarts.init(chartDom);
 
 //#region for demonstration only
-var values = {
-  technology: 300,
-  system: 200,
-  influence: 240,
-  people: 120,
-  process: 150,
-};
 
-var data = [
-  {
-    name: "Nghia",
-    value: {
-      technology: 300,
-      system: 200,
-      influence: 240,
-      people: 120,
-      process: 150,
-    },
-  },
-  {
-    name: "Quoc",
-    value: {
-      technology: 150,
-      system: 100,
-      influence: 140,
-      people: 220,
-      process: 300,
-    },
-  },
-];
+let data = []
 
+function updateChart(personData) {
+  if (personData) {
+    data =[...data, personData ]
+  }
 var options = { title: { text: "People Growth" } };
+  var option = createOption({ data, options });
+  option && myChart.setOption(option);
+}
+
+updateChart()
+
 //#endregion
-
-var option = createOption({ data, options });
-
-option && myChart.setOption(option);
 
 window.addEventListener("resize", function () {
   myChart.resize();
@@ -74,4 +52,105 @@ document.getElementById('exportButton').addEventListener('click', () => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+});
+
+// Add Person
+const addPersonButton = document.getElementById('addPerson');
+const container = document.getElementById('features');
+
+let personCount = 0;
+
+function updateData(personData) {
+  const newData = personData.map((item) => ({
+    name: item.personName,
+    value: {
+      technology: parseInt(item.technology, 10),
+      system: parseInt(item.system, 10),
+      influence: parseInt(item.influence, 10),
+      people: parseInt(item.people, 10),
+      process: parseInt(item.process, 10),
+    },
+  }))
+
+  updateChart(newData[0]);
+}
+
+
+addPersonButton.addEventListener('click', function () {
+  const personData = {}
+  if (personCount < 3) {
+    personCount++;
+
+    const personWrapper = document.createElement('div');
+    personWrapper.className = 'person-wrapper';
+
+    const nameInputWrapper = document.createElement('div');
+    nameInputWrapper.className = 'input-wrapper';
+
+    const nameLabel = document.createElement('label');
+    nameLabel.textContent = `Name for Person ${personCount}: `;
+    nameLabel.htmlFor = `person${personCount}-name`;
+
+    const nameInput = document.createElement('input');
+    nameInput.type = 'text';
+    nameInput.id = `personName`;
+    nameInput.name = `personName`;
+    nameInput.addEventListener('change', function (e) {
+      const { name, value } = e.target;
+      personData[name] = value;
+    })
+
+    nameInputWrapper.appendChild(nameLabel);
+    nameInputWrapper.appendChild(nameInput);
+
+    personWrapper.appendChild(nameInputWrapper);
+
+    const categories = ['Technology', 'System', 'People', 'Process', 'Influence'];
+    const inputs = [];
+
+    categories.forEach(category => {
+      const inputWrapper = document.createElement('div');
+      inputWrapper.className = 'input-wrapper';
+
+      const label = document.createElement('label');
+      label.textContent = `${category} for Person ${personCount}: `;
+      label.htmlFor = `person-${category.toLowerCase()}`;
+
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.id = `person-${category.toLowerCase()}`;
+      input.max = 300;
+      input.min = 0;
+      input.name = category.toLowerCase()
+
+      input.addEventListener('change', function (e) {
+        const { name, value } = e.target
+        if (parseInt(this.value, 10) > 300 || parseInt(this.value, 10) < 0) {
+          alert('Error: Value must be between 0 and 300.');
+          this.value = '';
+        } else {
+          personData[name] = value;
+        }
+      });
+
+      inputWrapper.appendChild(label);
+      inputWrapper.appendChild(input);
+
+      personWrapper.appendChild(inputWrapper);
+    });
+
+    inputs.push(personData);
+
+    const buttonUpdate = document.createElement('button');
+    buttonUpdate.id = 'updateData';
+    buttonUpdate.textContent = 'Update Data';
+    // buttonUpdate.disabled = true
+    buttonUpdate.addEventListener('click', () => updateData(inputs))
+    personWrapper.appendChild(buttonUpdate);
+
+    container.after(personWrapper);
+
+  } else {
+    alert('Maximum of 3 persons reached.');
+  }
 });
