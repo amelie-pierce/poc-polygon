@@ -74,3 +74,5 @@ export const CATEGORIES = [
   "People",
   "System",
 ];
+
+export const MAX_PERSONS = 3;
