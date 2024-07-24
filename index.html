@@ -8,17 +8,29 @@
       body {
         width: 100%;
       }
+
       #chart-container {
         height: 100vh;
         overflow: hidden;
       }
+
+      .person-wrapper {
+        display: flex;
+        gap: 1.25rem;
+        margin-top: 1rem;
+        align-items: center;
+      }
     </style>
   </head>
+
   <body>
     <div id="chart-container"></div>
-    <button id="exportButton">export image</button>
+    <script type="module" src="./index.js"></script>
 
     <script src="./echarts.min.js"></script>
-    <script type="module" src="./index.js"></script>
+    <div id="features">
+      <button id="exportButton">export image</button>
+      <button id="addPerson">Add Person</button>
+    </div>
   </body>
 </html>
